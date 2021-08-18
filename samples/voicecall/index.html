@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Sinch Calling SDK - Simple Voice Demo</title>
+        <link rel="icon" type="image/png" href="https://d2oeshgsx64tgz.cloudfront.net/assets/sms/9f2cd39e/favicon.png" />
+    </head>
+    <body>
+        <h1>Sinch Calling SDK - Simple Voice Demo</h1>
+        <h3>Tutorial</h3>
+        <ul>
+            <li>Open the url in two browsers/tabs and enter two different user ids (any string) and press start in both browsers/tabs.</li>
+            <li>Enter a callee (any string) in one of the browsers/tabs, should be the user id in the other browser/tab.</li>
+            <li>Open the console in your browser to get more insight about what is happening.</li>
+        </ul>
+        <br/><br/>
+        <form>
+            <fieldset>
+                <h3>Start a Sinch Client</h3>
+                <label for="userId">User id</label><br>
+                <input type="text" id="userId" name="userId"><br><br>
+                <button type="button" id="startClient">Start</button>
+            </fieldset>
+            <br><br>
+            <fieldset>
+                <h3>Make a call</h3>
+                <label for="callee">Callee</label><br>
+                <input type="text" id="callee" name="callee"><br><br>
+                <button type="button" disabled id="call">Call</button>
+                <button type="button" disabled id="hangup">Hangup</button>
+            </fieldset>
+        </form>
+        <script src="/sinch-rtc.js"></script>
+        <script type="module" src="./voicecall.js"></script>
+    </body>
+</html>
