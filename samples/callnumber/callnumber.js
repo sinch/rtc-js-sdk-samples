@@ -1,8 +1,8 @@
 import JWT from '../jwt.js';
 
-const APPLICATION_KEY = 'APPLICATION_KEY';
-const APPLICATION_SECRET = 'APPLICATION_SECRET';
-const FROM_USER_ID = 'USER_ID';
+const APPLICATION_KEY = 'dc43a80a-b790-46b5-adcd-31fc75b413aa';
+const APPLICATION_SECRET = 'FDQRUarAyESPqKsSJ7xD9A==';
+const FROM_USER_ID = 'user099';
 const API_URL = 'https://ocra.api.sinch.com';
 
 class SinchPhone {
@@ -43,13 +43,16 @@ class SinchPhone {
         call.addListener({
             onCallProgressing: (call) => {
                 this.setStatus('Progressing...');
+                this.setColor('status','orange');
             },
             onCallEstablished: (call) => {
                 this.playAudio(call);
                 this.setStatus('Established');
+                this.setColor('status', 'green');
             },
             onCallEnded: (call) => {
                 this.setStatus('Disconnected');
+                this.setColor('status', 'red');
                 this.setText('call', 'Call');
                 this.currentCall = undefined;
                 this.pauseAudio();
@@ -70,6 +73,9 @@ class SinchPhone {
         document.getElementById(id).innerHTML = text;
     }
 
+    setColor(id, text) {
+        document.getElementById(id).style.color = text;
+    }
     onCredentialsRequired(sinch, clientRegistration) {
         const token = new JWT(APPLICATION_KEY, APPLICATION_SECRET, sinch.userId);
         token.toJwt().then(clientRegistration.register).catch((error) => console.log(error));
