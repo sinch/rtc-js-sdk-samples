@@ -6,18 +6,14 @@ body {
   background-color: #ffffff;
 }
 
-p, form {
-  padding-left: 10px;
-}
-
-p {
+form {
   padding-left: 10px;
 }
 
 fieldset {
   width: 600px;
+  border-style: none;
 }
-
 .material-icons {
   padding-top: 10px;
   font-size: 1.5rem;
@@ -39,25 +35,14 @@ fieldset {
   font-family:  "Atlas Grotesk Web","Helvetica",sans-serif;
   font-size: 0.75rem;
   padding-top: 10px;
+  padding-left: 10px;
 }
 
-#sinchbox {
+.sinchbox {
   padding-top: 30px;
   padding-left: 30px;
   padding-bottom: 20px;
   width: 100%;
   height: 15%;
   background-color: #323e47!important;
-}
-
-#input-field {
-  width 450px;
-  border-style: dotted;
-  border-width: 1px;
-}
-
-#input-box {
-  width 550px;
-  border-style: dashed;
-  border-width: 1px;
 }
