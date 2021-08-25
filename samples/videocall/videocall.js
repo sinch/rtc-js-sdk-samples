@@ -43,7 +43,8 @@ class SinchPhone {
 
 	onClientStarted = async (sinch) => {
 		console.log(`Sinch - Client started for ${sinch.userId}`);
-
+		this.setText('status',`Client started for ${sinch.userId}`);
+        this.disableClient();
 		const callClient = sinch.callClient;
 		callClient.addListener(this);
 		this.callClient = callClient;
@@ -66,6 +67,7 @@ class SinchPhone {
   	makeCall = async () => {
 		const callee = this.getCallee();
 		console.log(`Sinch - Make call to ${callee}`);
+		this.setText('status',`Make call to ${callee}`);
     
     	try {
             this.call = await this.callClient.callUserVideo(callee);
@@ -87,6 +89,7 @@ class SinchPhone {
 
 		setTimeout(() => {
 			console.log(`Sinch - Incoming call from ${call.origin}`);
+		    this.setText('status',`Incoming call from ${call.origin}`);
 
 			try {
 				call.answer();
@@ -102,13 +105,16 @@ class SinchPhone {
 		call.addListener({
 			onCallProgressing: (call) => {
 				console.log(`Sinch - Call progressing ${ call.remoteUserId }`);
+		        this.setText('status',`Call progressing ${ call.remoteUserId}`);
 				this.playStream(call.outgoingStream, true, false);
 			}, onCallEstablished: (call) => {
 				console.log(`Sinch - Call established with ${ call.remoteUserId }`);
+		        this.setText('status',`Call established with ${call.remoteUserId}`);
 			}, onCallEnded: (call) => {
                 this.disableHangup();
                 this.enableCall();
 				console.log(`Sinch - Call ended ${ call.remoteUserId }`);
+		        this.setText('status',`Call ended ${call.remoteUserId}`);
 			}
 		});
 	}
@@ -134,6 +140,15 @@ class SinchPhone {
 		const token = new JWT(key, secret, userId);
 		return token.toJwt();
 	}
+
+    setStatus(text) {
+        this.setText('status', text);
+        console.log('Status: ' + text);
+    }
+
+    setText(id, text) {
+        document.getElementById(id).innerHTML = text;
+    }
 
     handleStartClientClick = (applicationKey, apiUrl) => {
         document.getElementById('startClient').addEventListener('click', () => this.startSinchClient(applicationKey, apiUrl));
@@ -162,6 +177,14 @@ class SinchPhone {
 
     enableCall = () => {
         document.getElementById('call').removeAttribute('disabled', true);
+    }
+
+    disableClient = () => {
+        document.getElementById('startClient').setAttribute('disabled', true);
+    }
+
+    enableClient = () => {
+        document.getElementById('startClient').removeAttribute('disabled', true);
     }
 
     getUserId = () => {

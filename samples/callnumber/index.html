@@ -2,69 +2,36 @@
 <head>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
     <meta content="utf-8" http-equiv="encoding">
+    <meta name="viewport" content="initial-scale=1.0, width=device-width">
     <title>Sinch Calling SDK - SimpleCall Phone Number Sample</title>
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="../style/sample.css">
-    <!--<script src="https://cdn.sinch.com/latest/sinch.min.js"></script>-->
-    <script src="../sinch-rtc-min.js"></script>
+    <script src="https://cdn.sinch.com/latest/sinch.min.js"></script>
 </head>
 <body>
-    <div class="sinchbox">
+    <div class="sinchheader">
         <img width="165" height="69" src="../style/header-logo-300x125-1.png" alt="Sinch">
     </div>
-                <span class="header">Call phone number</span>
-           </span>
+    <div class="sinchbody">
+    <span class="header">Call phone number</span>
     <form>
         <div class="input-box">
             <div class="input-field">
-        <fieldset>
-                <i class="material-icons prefix">phone</i>
-                <input id="to" type="tel" class="validate">
-        </fieldset>
-        <button class="btn-small" id="call">Call</button>
+                <fieldset>
+                    <i class="material-icons prefix">phone</i>
+                    <input id="to" type="tel" class="validate">
+                </fieldset>
+                <button class="btn-small" id="call">Call</button>
             </div>
-        <span id="status">Disconnected</span>
+            <span id="status">Disconnected</span>
         </div>
     </form>
-    <p><span class="footer">&copy; Powered by Sinch-RTC 2020</span></p>
-    <script type="module" src="callnumber.js"></script>
-</body>
-
-=======
-
-<head>
-    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
-    <meta content="utf-8" http-equiv="encoding">
-    <title>Sinch Calling SDK - SimpleCall Phone Number Sample</title>
-     <!--Import Google Icon Font-->
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" href="../style/sample.css">
-    <script src="../sinch-rtc-min.js"></script>
-</head>
-<body>
-    <div class="sinchbox">
-        <img width="165" height="69" src="../style/header-logo-300x125-1.png" alt="Sinch">
+    <p>
+        <span class="footer">&copy; Powered by Sinch-RTC 2020</span>
+    </p>
     </div>
-                <span class="header">Call phone number</span>
-           </span>
-    <form>
-        <div class="input-box">
-            <div class="input-field">
-        <fieldset>
-                <i class="material-icons prefix">phone</i>
-                <input id="to" type="tel" class="validate">
-        </fieldset>
-        <button class="btn-small" id="call">Call</button>
-            </div>
-        <span id="status">Disconnected</span>
-        </div>
-    </form>
-    <p><span class="footer">&copy; Powered by Sinch-RTC 2020</span></p>
     <script type="module" src="callnumber.js"></script>
 </body>
-
->>>>>>> cccb6807bc3af4860f99026d52c9c41d22bb7bf8
 </html>
