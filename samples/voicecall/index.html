@@ -1,38 +1,89 @@
 <!DOCTYPE html>
     <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Sinch Calling SDK - Simple Voice Demo</title>
-        <link rel="icon" type="image/png" href="https://d2oeshgsx64tgz.cloudfront.net/assets/sms/9f2cd39e/favicon.png" />
-    </head>
+<head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="utf-8" http-equiv="encoding">
+    <meta name="viewport" content="initial-scale=1.0, width=device-width">
+    <title>Sinch Calling SDK - In-App voice calling demo </title>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link rel="stylesheet" href="../style/sample.css">
+    <script src="https://cdn.sinch.com/latest/sinch-rtc-min.js"></script>
+    <!--<script src="../sinch-rtc-min.js"></script>-->
+</head>
     <body>
-        <h1>Sinch Calling SDK - Simple Voice Demo</h1>
-        <h3>Tutorial</h3>
-        <ul>
-            <li>Open the url in two browsers/tabs and enter two different user ids (any string) and press start in both browsers/tabs.</li>
-            <li>Enter a callee (any string) in one of the browsers/tabs, should be the user id in the other browser/tab.</li>
-            <li>Open the console in your browser to get more insight about what is happening.</li>
+        <div class="sinchheader">
+            <img width="165" height="69" src="../style/header-logo-300x125-1.png" alt="Sinch">
+        </div>
+        <ul class="collapsible">
+            <li>
+                <div class="collapsible-header"><i class="material-icons">menu</i><span class="header_l1">In-app voice calling demo</span> </div>
+                <div class="collapsible-body">
+                <ul class="collection">
+                    <li class="collection-item avatar">
+                        <i class="small material-icons circle red">account_box</i>
+                        <span class="header_l1">Step One</span>
+                        <p>Open the url in two browsers/tabs and enter two different <a href="https://developers.sinch.com/docs/voice-video-client/beta/android-cloud/android-cloud-miscellaneous/#restrictions-on-user-ids">user ids</a> (see the documentation for more details) and press start in both browsers/tabs.</p>
+                        <a href="#!" class="secondary-content"></a>
+                    </li>
+                    <li class="collection-item avatar">
+                        <i class="material-icons circle orange">phone_android</i>
+                        <span class="header_l1">Step Two</span>
+                         <p>Enter a callee in "Make a call" on one of the browsers/tabs, should be the user id in the other browser/tab.</p>
+                         <a href="#!" class="secondary-content"></a>
+                    </li>
+                    <li class="collection-item avatar">
+                        <i class="material-icons circle green">search</i>
+                        <span class="header_l1">Step Three</span>
+                        <p>Open the console in your browser to get more insight about what is happening. <i>Note: Chrome currently supports two tab calling. If you want to call in Firefox, you will have to create two separate profiles and call between them</i></p>
+                        <a href="#!" class="secondary-content"></a>
+                    </li>
+                </ul>
+            </li>
         </ul>
-        <br/><br/>
-        <form>
-            <fieldset>
-                <h3>Start a Sinch Client</h3>
-                <label for="userId">User id</label><br>
-                <input type="text" id="userId" name="userId"><br><br>
-                <button type="button" id="startClient">Start</button>
-            </fieldset>
-            <br><br>
-            <fieldset>
-                <h3>Make a call</h3>
-                <label for="callee">Callee</label><br>
-                <input type="text" id="callee" name="callee"><br><br>
-                <button type="button" disabled id="call">Call</button>
-                <button type="button" disabled id="hangup">Hangup</button>
-            </fieldset>
+        <div class="sinchbody">
+            <form>
+            <div class="input-box">
+                    <fieldset>
+                        <span class="header_l1">Start a Sinch Client</span><br>
+                        <!--<label for="userId">User id</label><br>-->
+                        <div class="input-field s6">
+                        <i class="material-icons prefix">account_box</i>
+                        <input placeholder="Enter user id" type="text" id="userId" name="userId" class="validate">
+                        </div>
+                        <button class="btn-small" type="button" id="startClient">Start</button>
+                    </fieldset>
+                </div>
+                <fieldset>
+                    <span class="header_l1">Make a call</span><br>
+                    <!--<label for="callee">Callee</label><br>-->
+                    <div class="input-field">
+                        <i class="material-icons prefix">phone_android</i>
+                        <input placeholder="Enter callee" type="text" id="callee" name="callee">
+                    </div>
+                    <button class="btn-small" type="button" disabled id="call">Call</button>
+                    <button class="btn-small" type="button" disabled id="hangup">Hangup</button>
+                </fieldset>
+                </div>
+                <div class="card blue-grey darken-1">
+                    <div class="card-content white-text">
+                        <div id="status">Client not started</div>
+                    </div>
+                </div>
+            </div>
+        </div>
         </form>
-        <script src="//cdn.sinch.com/latest/sinch-rtc-min.js"></script>
-        <script type="module" src="./voicecall.js"></script>
+        <p>
+            <span class="footer">&copy; Powered by Sinch-RTC 2020</span>
+        </p>
+        <script type="module" src="voicecall.js"></script>
+        <script type="text/javascript" >
+         document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('.collapsible');
+            var instances = M.Collapsible.init(elems, {});
+          });
+        </script>
     </body>
 </html>
