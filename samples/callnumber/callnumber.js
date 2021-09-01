@@ -2,7 +2,7 @@ import JWT from '../jwt.js';
 
 const APPLICATION_KEY = 'APPLICATION_KEY';
 const APPLICATION_SECRET = 'APPLICATION_SECRET';
-const FROM_USER_ID = 'user099';
+const FROM_USER_ID = 'USER_ID';
 const API_URL = 'https://ocra.api.sinch.com';
 
 class SinchPhone {
