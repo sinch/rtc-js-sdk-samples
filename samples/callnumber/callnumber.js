@@ -42,14 +42,17 @@ class SinchPhone {
         this.currentCall = call;
         call.addListener({
             onCallProgressing: (call) => {
-                this.setStatus('Progressing...');
+                this.setStatus('Call Progressing...');
+                this.setColor('status','orange');
             },
             onCallEstablished: (call) => {
                 this.playAudio(call);
-                this.setStatus('Established');
+                this.setStatus('Call Established');
+                this.setColor('status', 'white');
             },
             onCallEnded: (call) => {
-                this.setStatus('Disconnected');
+                this.setStatus('Call Disconnected');
+                this.setColor('status', 'red');
                 this.setText('call', 'Call');
                 this.currentCall = undefined;
                 this.pauseAudio();
@@ -70,6 +73,9 @@ class SinchPhone {
         document.getElementById(id).innerHTML = text;
     }
 
+    setColor(id, text) {
+        document.getElementById(id).style.color = text;
+    }
     onCredentialsRequired(sinch, clientRegistration) {
         const token = new JWT(APPLICATION_KEY, APPLICATION_SECRET, sinch.userId);
         token.toJwt().then(clientRegistration.register).catch((error) => console.log(error));
