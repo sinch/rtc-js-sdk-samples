@@ -10,6 +10,7 @@ class SinchPhone {
         this.sinch = Sinch.getSinchClientBuilder().
             applicationKey(APPLICATION_KEY).
             userId(userId).
+            callerIdentifier("+61862457163").
             environmentHost(API_URL).build();
 
         this.sinch.addListener(this);
